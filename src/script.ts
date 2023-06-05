@@ -1,8 +1,9 @@
 //Game State Data
-  // We need
+  // We needs
   //https://boardgames.stackexchange.com/questions/57983/how-to-name-checkers-moves
 
-const board = [
+  
+const board: (number | null )[] = [
     null, 0, null, 1, null, 2, null, 3,
     4, null, 5, null, 6, null, 7, null,
     null, 8, null, 9, null, 10, null, 11,
@@ -19,8 +20,8 @@ const board = [
 // cached data
 //return the first index
 
-function findpiece(pieceId){
-    let parsed = parseInt(pieceId);
+function findpiece(pieceId: number):number {
+    let parsed = parseInt(pieceId.toString());
     return board.indexOf(parsed);
 };
 //DOM REFERENCES
@@ -36,13 +37,25 @@ const blackTurnText = document.querySelectorAll(".blackTurn");
 
 //player properties
 
-  let turn = true; //current player turn
-  let redPieceScore = 12;
-  let blackPieceScore = 12;
-  let playerPieces;
+  let turn: boolean = true; //current player turn
+  let redPieceScore: number = 12;
+  let blackPieceScore: number = 12;
+  let playerPieces: number | unknown;
   
   //with the board array I needed a variable  that hold the piece's properties  
-  let selectedPiece = {
+  let selectedPiece : {
+    pieceId: number,
+    indexPiece: number,
+    isKing: boolean,
+    seventhSpace: boolean,
+    ninthSpace: boolean,
+    fourteenthSpace: boolean,
+    eightteenthSpace: boolean,
+    negativeSeventhSpace: boolean,
+    negativeNinthSpace: boolean, 
+    negativefourteenthSpace: boolean,
+    negativeEighteenthSpace: boolean 
+  } = {
     pieceId: -1,
     indexPiece: -1,
     isKing: false,
@@ -312,7 +325,7 @@ function makeAMove(number){
     }
     // this variable is made to pass the object propert directly into the function's argument
 
-    let boardPiece = selectedPiece.indexPiece 
+    let boardPiece:number = selectedPiece.indexPiece 
     if (number === 14 || number === -14 || number === 18 || number === -18) { // if the number of the move if a jump move 
         changeTheData(boardPiece, boardPiece + number, boardPiece + number / 2);
     }else{

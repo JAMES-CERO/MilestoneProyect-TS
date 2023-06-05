@@ -1,0 +1,77 @@
+/*Each cell looks like an square & we wanted to center the piece
+*/
+:root{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(194, 171, 223);
+}
+td{
+    background-color:rgb(176, 113, 24);
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    
+}
+
+.noPieceHere{
+    background-color: rgba(246, 202, 141, 0.807);
+}
+
+.black-piece{
+  width: 20px;
+  height: 20px;
+  padding: 12px;
+  background-color: rgb(2, 2, 2);
+  border: 1px solid rgb(255, 192, 203);
+  border-radius: 50px;
+}
+
+.red-piece{
+  width: 20px;
+  height: 20px;
+  padding: 12px;
+  background-color: rgb(243, 7, 7);
+  border: 1px solid rgb(255, 192, 203);
+  border-radius: 50px;
+}
+
+/* A normal piece become King when reaching the last line on the opposite side of the board,  */
+.king.red-piece{
+    background-color: darkorange;
+}
+
+.king.black-piece{
+    background-color: purple;
+}
+/* Flexbox 
+  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+  https://stackoverflow.com/questions/446060/css-two-divs-next-to-each-other*/
+.blackTurn{
+    color: rgb(58, 27, 216);
+    flex: 1;
+    align-self: center;
+    
+}
+.redTurn{
+    color: orange;
+    width: 338px;
+    align-self: center;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    background-color: rgb(214, 89, 89);
+    width: 675px;
+   
+}
+/*inline block in this 2 cases works differrently, but make have the result i was looking for 
+ gerard the instructor mention something about it & i wanted to try it */
+p,
+span{
+    display: inline-block;
+}
+h1{
+    color: black;
+}

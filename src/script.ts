@@ -1,4 +1,3 @@
-import { HTMLTableCellElement, HTMLElement } from 'dom'
 //Game State Data
 // We needs
 //https://boardgames.stackexchange.com/questions/57983/how-to-name-checkers-moves
@@ -397,7 +396,7 @@ function makeAMove(number: number, removePiece: number): number {
 // the parameter are the position , the new posititon & also the removepiece that got jumped
 function changeTheData(indexPiece: number, newIndex: number, removePiece: number): void {
     board[indexPiece] = null;
-    board[newIndex] = String(selectedPiece.pieceId);  //change the original position of the selected piece to null & move the data to the new position
+    board[newIndex] = selectedPiece.pieceId;  //change the original position of the selected piece to null & move the data to the new position
     if (turn && selectedPiece.pieceId < 12 && newIndex >= 57) {  // 57 is the first cell of the last row . 12 is the last number of pieces 
         document.getElementById(selectedPiece.pieceId.toString())?.classList.add("king")
     }
@@ -457,16 +456,16 @@ function switchPlayer(): void {
         for (let i = 0; i < redTurnText.length; i++) {
             redTurnText[i].style.color = "lightGrey";
             blackTurnText[i].style.color = "black";
-            blackTurnText[i].style = "font-size: 40px";
-            redTurnText[i].style = "font-size: 20px";
+            blackTurnText[i].style.setProperty("font-size", "40px");
+            redTurnText[i].style.setProperty("font-size", "20px");
         }
     } else {
         turn = true;
         for (let i = 0; i < blackTurnText.length; i++) {
             blackTurnText[i].style.color = "lightGrey";
             redTurnText[i].style.color = "black";
-            redTurnText[i].style = "font-size: 40px";
-            blackTurnText[i].style = "font-size: 20px";
+            redTurnText[i].style.setProperty("font-size", "40px");
+            blackTurnText[i].style.setProperty("font-size", "20px");
         }
     }
     piecesEvent();
